@@ -1,0 +1,4 @@
+mongo_user: ''
+mongo_pass: ''
+mongo_uri: ''
+airnow_api_key: ''
