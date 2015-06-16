@@ -3,9 +3,10 @@
 import sys
 import pymongo
 import csv
+import kaptan
 
 config = kaptan.Kaptan(handler='yaml')
-config.import_config('../config.yml')
+config.import_config('./config.yml')
 
 MONGO_USER = config.get('mongo_user')
 MONGO_PASS = config.get('mongo_pass')
@@ -18,10 +19,11 @@ def main(args):
 		
 		cities = db['cities']
 
-		print cities.find().count()
+		print cities.find({ 'aqi': None }).count()
 
 		for city in cities.find():
 			print "%s,%s,%s,%s" % (city['name'], city['zipcode'], city['latlong'], city['population']) 
+			print len(city.get('aqi', []))
 
 		client.close()
 
