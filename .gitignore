@@ -55,3 +55,9 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Custom
+.DS_Store
+notes/
+config.yml
+tasks/test.py
